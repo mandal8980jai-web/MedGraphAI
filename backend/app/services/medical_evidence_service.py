@@ -13,6 +13,19 @@ from app.services.gemini_client import call_gemini_with_search, call_gemini_chat
 # In-memory evidence cache keyed by normalized query: { findings, sources, evidence_tier, timestamp }
 _EVIDENCE_CACHE: Dict[str, Dict[str, Any]] = {}
 CACHE_TTL_SECONDS = 3600  # 1 hour
+MAX_EVIDENCE_CACHE_SIZE = 64  # Strictly bounded to prevent memory growth on 512 MB instances
+
+
+def _set_evidence_cache(key: str, data: Dict[str, Any]) -> None:
+    now = time.time()
+    if len(_EVIDENCE_CACHE) >= MAX_EVIDENCE_CACHE_SIZE:
+        expired = [k for k, v in _EVIDENCE_CACHE.items() if now - v.get("timestamp", 0) >= CACHE_TTL_SECONDS]
+        for k in expired:
+            _EVIDENCE_CACHE.pop(k, None)
+    if len(_EVIDENCE_CACHE) >= MAX_EVIDENCE_CACHE_SIZE:
+        oldest_key = min(_EVIDENCE_CACHE.keys(), key=lambda k: _EVIDENCE_CACHE[k].get("timestamp", 0))
+        _EVIDENCE_CACHE.pop(oldest_key, None)
+    _EVIDENCE_CACHE[key] = {**data, "timestamp": now}
 
 # Common INN / USAN / Generic mappings for accurate database retrieval
 GENERIC_ALIASES = {
@@ -311,7 +324,7 @@ def retrieve_medicine_evidence(
             "status": "ok",
             "flags": []
         }
-        _EVIDENCE_CACHE[normalized_name] = {**evidence_result, "timestamp": time.time()}
+        _set_evidence_cache(normalized_name, evidence_result)
         return evidence_result
 
     # Step 3: Authoritative Public Medical APIs (openFDA Drug Label API + PubMed NCBI)
@@ -339,7 +352,7 @@ def retrieve_medicine_evidence(
             "status": "ok",
             "flags": []
         }
-        _EVIDENCE_CACHE[normalized_name] = {**evidence_result, "timestamp": time.time()}
+        _set_evidence_cache(normalized_name, evidence_result)
         return evidence_result
 
     # Step 4: Unknown / Unindexed Medicine (No results from FDA or PubMed)

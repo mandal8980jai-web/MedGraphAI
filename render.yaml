@@ -4,7 +4,7 @@ services:
     runtime: python
     rootDir: backend
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
     healthCheckPath: /health
     autoDeploy: true
     envVars:
@@ -12,6 +12,10 @@ services:
         value: 3.11.9
       - key: APP_ENV
         value: production
+      - key: WEB_CONCURRENCY
+        value: "1"
+      - key: MAX_UPLOAD_MB
+        value: "10"
       - key: LLM_API_KEY
         sync: false
       - key: LLM_MODEL

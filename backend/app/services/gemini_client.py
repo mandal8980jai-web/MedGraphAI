@@ -13,14 +13,26 @@ except ImportError:
     types = None
 
 
+_genai_client = None
+_cached_key = None
+
+
 def get_genai_client():
+    global _genai_client, _cached_key
     if not genai or not settings.is_llm_key_configured:
+        _genai_client = None
+        _cached_key = None
         return None
-    try:
-        return genai.Client(api_key=settings.LLM_API_KEY)
-    except Exception as e:
-        logger.warning(f"Could not initialize GenAI client: {e}")
-        return None
+    if _genai_client is None or _cached_key != settings.LLM_API_KEY:
+        try:
+            _genai_client = genai.Client(api_key=settings.LLM_API_KEY)
+            _cached_key = settings.LLM_API_KEY
+        except Exception as e:
+            logger.warning(f"Could not initialize GenAI client: {e}")
+            _genai_client = None
+            _cached_key = None
+            return None
+    return _genai_client
 
 
 def get_candidate_models() -> List[str]:

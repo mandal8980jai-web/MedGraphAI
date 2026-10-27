@@ -3,11 +3,13 @@ import json
 import difflib
 from pathlib import Path
 from typing import Optional, Dict, Any, List, Tuple
+from functools import lru_cache
 from app.services.medicine_matcher import normalize_medicine_name
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "verified_medicines.json"
 
 
+@lru_cache(maxsize=1)
 def load_verified_medicines() -> List[Dict[str, Any]]:
     if not DATA_FILE.exists():
         return []

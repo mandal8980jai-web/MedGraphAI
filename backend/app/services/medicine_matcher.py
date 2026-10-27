@@ -31,6 +31,10 @@ def normalize_medicine_name(name: str) -> str:
     return " ".join(tokens) if tokens else " ".join(text.split())
 
 
+from functools import lru_cache
+
+
+@lru_cache(maxsize=1)
 def load_medicine_catalog() -> List[Dict[str, Any]]:
     """
     Load curated sample medicines from medicine_catalog.example.json,

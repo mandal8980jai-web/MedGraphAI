@@ -15,7 +15,10 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./medigraph.db"
     UPLOAD_DIR: str = "../storage/uploads"
     REPORT_DIR: str = "../storage/reports"
-    MAX_UPLOAD_MB: int = 15
+    MAX_UPLOAD_MB: int = 10
+    OCR_MAX_IMAGE_DIMENSION: int = 1800
+    OCR_PDF_DPI: int = 150
+    WEB_CONCURRENCY: int = 1
     RETENTION_DAYS: int = 7
     FRONTEND_ORIGIN: str = "http://localhost:5173"
     CORS_ORIGIN_REGEX: str = r"https://.*\.vercel\.app"
