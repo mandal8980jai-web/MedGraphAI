@@ -217,7 +217,115 @@ npm run build
 
 ---
 
-## 8. Retention and Privacy Policy
+---
+
+## 8. Production Deployment Guide (Render + Vercel)
+
+This application is decoupled into an independent **FastAPI backend** (deployed to [Render](https://render.com)) and a **React/Vite frontend** (deployed to [Vercel](https://vercel.com)).
+
+### Deployment Architecture
+
+```text
+[ User Browser ]
+       │
+       ▼ (HTTPS)
+[ Vercel CDN ] ─── React / Vite SPA (frontend/)
+       │
+       ▼ (REST API / SSE via VITE_API_URL)
+[ Render Web Service ] ─── FastAPI / Python 3.11 (backend/)
+       │
+       ├── Google Gemini API (LLM_API_KEY)
+       ├── PyMuPDF & RapidOCR (Local ONNX OCR)
+       └── SQLite & File Storage (Local or Persistent Disk)
+```
+
+---
+
+### Step 1: Deploy Backend to Render
+
+1. Log in to your [Render Dashboard](https://dashboard.render.com/) and click **New + > Web Service**.
+2. Connect your GitHub repository: `https://github.com/mandal8980jai-web/MedGraphAI.git`.
+3. Configure the service with these **exact settings**:
+   - **Name**: `medigraph-backend` (or your preferred name)
+   - **Region**: Choose the region closest to you
+   - **Branch**: `main`
+   - **Root Directory**: `backend` *(CRITICAL: must be set to `backend`)*
+   - **Runtime**: `Python 3`
+   - **Build Command**:
+     ```bash
+     pip install --upgrade pip && pip install -r requirements.txt
+     ```
+   - **Start Command**:
+     ```bash
+     uvicorn app.main:app --host 0.0.0.0 --port $PORT
+     ```
+   - **Plan**: Free (or Starter if you want persistent disk)
+4. Under **Advanced Settings**:
+   - **Health Check Path**: `/health`
+5. Under **Environment Variables**, add:
+   | Key | Value | Description |
+   |---|---|---|
+   | `LLM_API_KEY` | `your_gemini_api_key` | Your secret Google Gemini API key |
+   | `LLM_MODEL` | `gemini-3.5-flash-lite` | Recommended model |
+   | `APP_ENV` | `production` | Production mode |
+   | `PYTHON_VERSION` | `3.11.9` | Matches tested runtime |
+   | `CORS_ORIGIN_REGEX` | `https://.*\.vercel\.app` | Permits all Vercel production & preview URLs |
+   | `FRONTEND_ORIGIN` | `https://localhost:5173` | Set initially; update with your real Vercel URL in Step 3 |
+6. Click **Create Web Service**. Wait for the build and deployment to finish.
+7. Copy your assigned Render URL (e.g. `https://medigraph-backend.onrender.com`).
+8. Verify backend health in your browser:
+   - Visit: `https://medigraph-backend.onrender.com/health`
+   - Expected response: `{"status":"ok","llm_key_set":true,"model":"gemini-3.5-flash-lite"}`
+
+---
+
+### Step 2: Deploy Frontend to Vercel
+
+1. Log in to your [Vercel Dashboard](https://vercel.com/dashboard) and click **Add New... > Project**.
+2. Import the repository: `mandal8980jai-web/MedGraphAI`.
+3. Configure project settings:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: Click *Edit* and select `frontend` *(CRITICAL)*
+   - **Build Command**: `npm run build` (Default)
+   - **Output Directory**: `dist` (Default)
+   - **Install Command**: `npm install` (Default)
+4. In the **Environment Variables** section, add:
+   | Key | Value |
+   |---|---|
+   | `VITE_API_URL` | `https://medigraph-backend.onrender.com` *(use your actual Render backend URL without a trailing slash)* |
+5. Click **Deploy**. Vercel will install dependencies, build the TypeScript bundle, and provide a production domain (e.g. `https://medigraph-ai.vercel.app`).
+6. Single Page Application (SPA) routing is pre-configured via `frontend/vercel.json`, so page refreshes on `/history` work seamlessly.
+
+---
+
+### Step 3: Connect Frontend URL to Backend CORS
+
+1. Return to your [Render Dashboard](https://dashboard.render.com/) -> `medigraph-backend` -> **Environment**.
+2. Update `FRONTEND_ORIGIN` with your live Vercel domain:
+   ```text
+   FRONTEND_ORIGIN=https://medigraph-ai.vercel.app
+   ```
+3. Save changes. Render will automatically redeploy with the updated CORS origin.
+
+---
+
+### Step 4: Storage Considerations in Production
+
+- **Free Tier (Default Ephemeral)**:
+  - Render's free tier uses an ephemeral filesystem that resets on spin-down or redeploy.
+  - The application is architected to handle this gracefully: the SQLite schema (`init_db()`) and storage directories are automatically recreated on startup, so the app functions immediately for all uploads and queries.
+- **Paid Tier with Persistent Disk (Optional)**:
+  - If you require persistent historical analyses and saved PDF reports across restarts, attach a **Persistent Disk** on Render (e.g. 1 GB mounted at `/var/data`).
+  - Add these 3 environment variables in the Render Dashboard:
+    ```text
+    DATABASE_URL=sqlite:////var/data/medigraph.db
+    UPLOAD_DIR=/var/data/storage/uploads
+    REPORT_DIR=/var/data/storage/reports
+    ```
+
+---
+
+## 9. Retention and Privacy Policy
 
 - Raw prescription text is never written to logs or event streams.
 - Uploaded files are stored with random UUID filenames outside the web root.

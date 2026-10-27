@@ -76,18 +76,26 @@ app = FastAPI(
 )
 
 # CORS
-origins = [
-    settings.FRONTEND_ORIGIN,
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=settings.cors_origins,
+    allow_origin_regex=settings.CORS_ORIGIN_REGEX if settings.CORS_ORIGIN_REGEX else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def root():
+    """Root endpoint for health checks and service info."""
+    return {
+        "service": "MediGraph AI API",
+        "status": "online",
+        "version": "0.1.0",
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 
 @app.exception_handler(Exception)

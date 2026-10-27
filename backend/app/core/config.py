@@ -18,7 +18,24 @@ class Settings(BaseSettings):
     MAX_UPLOAD_MB: int = 15
     RETENTION_DAYS: int = 7
     FRONTEND_ORIGIN: str = "http://localhost:5173"
+    CORS_ORIGIN_REGEX: str = r"https://.*\.vercel\.app"
     LOG_LEVEL: str = "INFO"
+
+    @property
+    def cors_origins(self) -> list[str]:
+        origins = set()
+        raw = self.FRONTEND_ORIGIN.strip() if self.FRONTEND_ORIGIN else ""
+        if raw:
+            for item in raw.split(","):
+                cleaned = item.strip().rstrip("/")
+                if cleaned:
+                    origins.add(cleaned)
+        # Always allow standard local dev origins
+        origins.add("http://localhost:5173")
+        origins.add("http://127.0.0.1:5173")
+        origins.add("http://localhost:3000")
+        origins.add("http://127.0.0.1:3000")
+        return list(origins)
 
     @property
     def is_llm_key_configured(self) -> bool:

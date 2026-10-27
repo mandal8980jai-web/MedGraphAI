@@ -1,7 +1,7 @@
 import { Medicine, PatientContext, AnalysisResponse, AnalysisSummary } from '../types';
 
-export const API_BASE_URL: string =
-  (import.meta.env.VITE_API_URL as string) || 'http://localhost:8000';
+const rawApiUrl = (import.meta.env.VITE_API_URL as string) || 'http://localhost:8000';
+export const API_BASE_URL: string = rawApiUrl.replace(/\/+$/, '');
 
 export interface HealthResponse {
   status: string;

@@ -11,6 +11,16 @@ def test_health_endpoint():
         assert "llm_key_set" in data
         assert "model" in data
 
+def test_root_endpoint():
+    with TestClient(app) as client:
+        response = client.get("/")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["service"] == "MediGraph AI API"
+        assert data["status"] == "online"
+        assert data["health"] == "/health"
+
+
 
 def test_config_defaults():
     from app.core.config import settings
