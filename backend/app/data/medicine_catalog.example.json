@@ -1,0 +1,92 @@
+{
+  "note": "Sample list for demo. Not complete. Check with a pharmacist.",
+  "medicines": [
+    {
+      "id": "paracetamol_dolo",
+      "names": [
+        "Dolo 650",
+        "Dolo",
+        "Paracetamol 650",
+        "Dolo-650",
+        "Dolo tablet",
+        "Dolo 650mg",
+        "Tablet Dolo 650",
+        "Calpol 650",
+        "Calpol",
+        "Calpol 500",
+        "Pacimol 650",
+        "Pacimol",
+        "Panadol",
+        "P-650"
+      ],
+      "ingredients": ["paracetamol"]
+    },
+    {
+      "id": "paracetamol_crocin",
+      "names": [
+        "Crocin",
+        "Crocin 650",
+        "Crocin Advance",
+        "Crocin 500",
+        "Crocin Pain Relief",
+        "Crocin 650mg"
+      ],
+      "ingredients": ["paracetamol"]
+    },
+    {
+      "id": "ibuprofen_brufen",
+      "names": ["Brufen", "Brufen 400", "Ibuprofen", "Ibugesic", "Brufen 600"],
+      "ingredients": ["ibuprofen"]
+    },
+    {
+      "id": "aspirin_ecosprin",
+      "names": ["Ecosprin", "Ecosprin 75", "Ecosprin 150", "Aspirin", "Disprin", "ASA"],
+      "ingredients": ["aspirin"]
+    },
+    {
+      "id": "metformin_glycomet",
+      "names": ["Glycomet", "Glycomet 500", "Glycomet GP", "Metformin", "Glucophage", "Obimet"],
+      "ingredients": ["metformin"]
+    },
+    {
+      "id": "atorvastatin_atorva",
+      "names": ["Atorva", "Atorva 10", "Atorva 20", "Atorvastatin", "Atorlip", "Lipitor", "Storvas"],
+      "ingredients": ["atorvastatin"]
+    },
+    {
+      "id": "amoxicillin_mox",
+      "names": ["Mox", "Mox 500", "Amoxicillin", "Novamox", "Amoxil"],
+      "ingredients": ["amoxicillin"]
+    },
+    {
+      "id": "warfarin_coumadin",
+      "names": ["Warfarin", "Coumadin", "Warf", "Warfarin 5mg", "Uniwarf"],
+      "ingredients": ["warfarin"]
+    },
+    {
+      "id": "clarithromycin_klaricid",
+      "names": ["Clarithromycin", "Klaricid", "Biaxin"],
+      "ingredients": ["clarithromycin"]
+    },
+    {
+      "id": "simvastatin_zocor",
+      "names": ["Simvastatin", "Zocor"],
+      "ingredients": ["simvastatin"]
+    },
+    {
+      "id": "pantoprazole_pan",
+      "names": ["Pan 40", "Pan", "Pantoprazole", "Pantocid", "Pantop"],
+      "ingredients": ["pantoprazole"]
+    },
+    {
+      "id": "azithromycin_azithral",
+      "names": ["Azithral", "Azithral 500", "Azithromycin", "Azee"],
+      "ingredients": ["azithromycin"]
+    },
+    {
+      "id": "montelukast_montair",
+      "names": ["Montair LC", "Montair", "Telekast L", "Montek LC"],
+      "ingredients": ["montelukast", "levocetirizine"]
+    }
+  ]
+}

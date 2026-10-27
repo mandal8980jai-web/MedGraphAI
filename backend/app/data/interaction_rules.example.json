@@ -1,0 +1,33 @@
+{
+  "note": "Sample rules for demo. Not complete. Check with a pharmacist.",
+  "rules": [
+    {
+      "id": "r1",
+      "ingredients": ["warfarin", "aspirin"],
+      "severity": "high",
+      "note": "May raise the chance of bleeding.",
+      "source_label": "Sample demo rule, verify with a pharmacist"
+    },
+    {
+      "id": "r2",
+      "ingredients": ["warfarin", "ibuprofen"],
+      "severity": "high",
+      "note": "May increase risk of serious stomach bleeding and reduce blood clotting control.",
+      "source_label": "Sample demo rule, verify with a pharmacist"
+    },
+    {
+      "id": "r3",
+      "ingredients": ["aspirin", "ibuprofen"],
+      "severity": "moderate",
+      "note": "Taking both NSAIDs together may irritate the stomach and reduce the heart-protective effect of aspirin.",
+      "source_label": "Sample demo rule, verify with a pharmacist"
+    },
+    {
+      "id": "r4",
+      "ingredients": ["simvastatin", "clarithromycin"],
+      "severity": "high",
+      "note": "Clarithromycin substantially raises simvastatin levels, increasing the risk of muscle injury.",
+      "source_label": "Sample demo rule, verify with a pharmacist"
+    }
+  ]
+}

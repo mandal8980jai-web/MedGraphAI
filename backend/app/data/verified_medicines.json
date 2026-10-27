@@ -1,0 +1,302 @@
+{
+  "notice": "Verified clinical equivalence and reference dataset. For educational decision-support only. Always verify with a doctor or pharmacist.",
+  "medicines": [
+    {
+      "id": "dolo_650",
+      "brand_name": "Dolo 650",
+      "aliases": ["Dolo", "Dolo 650mg", "Dolo-650", "Dolo tablet"],
+      "ingredients": [
+        {"name": "paracetamol", "strength": "650 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 34.0,
+      "is_rx_required": false,
+      "therapeutic_class": "Analgesic and Antipyretic",
+      "category_b_brands": [
+        {"brand_name": "Calpol 650", "manufacturer": "GSK", "reference_mrp_inr": 33.0, "pack_size": "15 tablets"},
+        {"brand_name": "Crocin 650", "manufacturer": "GSK", "reference_mrp_inr": 34.0, "pack_size": "15 tablets"},
+        {"brand_name": "Pacimol 650", "manufacturer": "Ipca Laboratories", "reference_mrp_inr": 28.0, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Paracetamol Tablets IP 650 mg (Jan Aushadhi)", "manufacturer": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana", "reference_mrp_inr": 11.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Brufen 400 (Ibuprofen)", "reason": "NSAID with different active molecule, distinct mechanism, gastrointestinal bleeding risks, and kidney considerations. NOT an interchangeable substitute."}
+      ]
+    },
+    {
+      "id": "crocin_650",
+      "brand_name": "Crocin 650",
+      "aliases": ["Crocin", "Crocin Advance", "Crocin 650mg"],
+      "ingredients": [
+        {"name": "paracetamol", "strength": "650 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 34.0,
+      "is_rx_required": false,
+      "therapeutic_class": "Analgesic and Antipyretic",
+      "category_b_brands": [
+        {"brand_name": "Dolo 650", "manufacturer": "Micro Labs", "reference_mrp_inr": 34.0, "pack_size": "15 tablets"},
+        {"brand_name": "Calpol 650", "manufacturer": "GSK", "reference_mrp_inr": 33.0, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Paracetamol Tablets IP 650 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 11.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Aspirin 75mg", "reason": "Antiplatelet / Salicylate with bleeding side effects, different primary indications."}
+      ]
+    },
+    {
+      "id": "calpol_500",
+      "brand_name": "Calpol 500",
+      "aliases": ["Calpol", "Calpol 500mg"],
+      "ingredients": [
+        {"name": "paracetamol", "strength": "500 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 20.0,
+      "is_rx_required": false,
+      "therapeutic_class": "Analgesic and Antipyretic",
+      "category_b_brands": [
+        {"brand_name": "Crocin 500", "manufacturer": "GSK", "reference_mrp_inr": 21.0, "pack_size": "15 tablets"},
+        {"brand_name": "Dolo 500", "manufacturer": "Micro Labs", "reference_mrp_inr": 19.5, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Paracetamol Tablets IP 500 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 8.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": []
+    },
+    {
+      "id": "augmentin_625_duo",
+      "brand_name": "Augmentin 625 Duo",
+      "aliases": ["Augmentin", "Augmentin 625", "Augmentin Duo"],
+      "ingredients": [
+        {"name": "amoxicillin", "strength": "500 mg"},
+        {"name": "potassium clavulanate", "strength": "125 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "10 tablets",
+      "units_per_pack": 10,
+      "reference_mrp_inr": 223.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Broad-spectrum Antibacterial Combination",
+      "category_b_brands": [
+        {"brand_name": "Clavam 625", "manufacturer": "Alkem Laboratories", "reference_mrp_inr": 205.0, "pack_size": "10 tablets"},
+        {"brand_name": "Moxikind-CV 625", "manufacturer": "Mankind Pharma", "reference_mrp_inr": 185.0, "pack_size": "10 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Amoxycillin and Potassium Clavulanate Tablets IP 625 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 60.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Azithromycin 500mg", "reason": "Macrolide antibiotic with a different antimicrobial spectrum, half-life, and resistance profile. NOT an interchangeable substitute."}
+      ]
+    },
+    {
+      "id": "pan_40",
+      "brand_name": "Pan 40",
+      "aliases": ["Pan 40mg", "Pantocid 40", "Pantoprazole 40", "Pantodac 40"],
+      "ingredients": [
+        {"name": "pantoprazole", "strength": "40 mg"}
+      ],
+      "dosage_form": "gastro-resistant tablet",
+      "release_type": "enteric-coated",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 160.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Proton Pump Inhibitor (PPI)",
+      "category_b_brands": [
+        {"brand_name": "Pantocid 40", "manufacturer": "Sun Pharma", "reference_mrp_inr": 155.0, "pack_size": "15 tablets"},
+        {"brand_name": "Pantosec 40", "manufacturer": "Cipla", "reference_mrp_inr": 148.0, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Pantoprazole Gastro-resistant Tablets IP 40 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 25.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Pan-D (Pantoprazole + Domperidone)", "reason": "Pan-D contains an additional prokinetic agent (Domperidone) with cardiac QT prolongation warnings. Never treat as interchangeable."}
+      ]
+    },
+    {
+      "id": "glycomet_500",
+      "brand_name": "Glycomet 500",
+      "aliases": ["Glycomet", "Glycomet 500mg", "Metformin 500"],
+      "ingredients": [
+        {"name": "metformin", "strength": "500 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "20 tablets",
+      "units_per_pack": 20,
+      "reference_mrp_inr": 48.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Antidiabetic Biguanide",
+      "category_b_brands": [
+        {"brand_name": "Obimet 500", "manufacturer": "Abbott", "reference_mrp_inr": 44.0, "pack_size": "20 tablets"},
+        {"brand_name": "Gluformin 500", "manufacturer": "Abbott", "reference_mrp_inr": 42.0, "pack_size": "20 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Metformin Tablets IP 500 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 10.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Glycomet-GP (Metformin + Glimepiride)", "reason": "Combination medication containing a sulfonylurea which stimulates insulin release and carries hypoglycemia risk. NOT interchangeable."}
+      ]
+    },
+    {
+      "id": "atorva_10",
+      "brand_name": "Atorva 10",
+      "aliases": ["Atorva", "Atorva 10mg", "Atorvastatin 10"],
+      "ingredients": [
+        {"name": "atorvastatin", "strength": "10 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 115.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Lipid-Lowering Statin",
+      "category_b_brands": [
+        {"brand_name": "Storvas 10", "manufacturer": "Sun Pharma", "reference_mrp_inr": 112.0, "pack_size": "15 tablets"},
+        {"brand_name": "Lipikind 10", "manufacturer": "Mankind", "reference_mrp_inr": 85.0, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Atorvastatin Tablets IP 10 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 20.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Rosuvastatin 10mg", "reason": "Different statin molecule with higher potency per mg and different metabolic clearance. Requires doctor's dose titration."}
+      ]
+    },
+    {
+      "id": "ecosprin_75",
+      "brand_name": "Ecosprin 75",
+      "aliases": ["Ecosprin", "Ecosprin 75mg", "Aspirin 75"],
+      "ingredients": [
+        {"name": "aspirin", "strength": "75 mg"}
+      ],
+      "dosage_form": "enteric-coated tablet",
+      "release_type": "enteric-coated",
+      "standard_pack_size": "14 tablets",
+      "units_per_pack": 14,
+      "reference_mrp_inr": 6.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Antiplatelet Agent",
+      "category_b_brands": [
+        {"brand_name": "Delisprin 75", "manufacturer": "Aristo", "reference_mrp_inr": 5.8, "pack_size": "14 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Aspirin Enteric Coated Tablets IP 75 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 3.0, "pack_size": "14 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Clopidogrel 75mg", "reason": "Different antiplatelet class (P2Y12 inhibitor) with distinct mechanism and bleeding profile."}
+      ]
+    },
+    {
+      "id": "azithral_500",
+      "brand_name": "Azithral 500",
+      "aliases": ["Azithral", "Azithral 500mg", "Azithromycin 500"],
+      "ingredients": [
+        {"name": "azithromycin", "strength": "500 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "5 tablets",
+      "units_per_pack": 5,
+      "reference_mrp_inr": 120.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Macrolide Antibacterial",
+      "category_b_brands": [
+        {"brand_name": "Azee 500", "manufacturer": "Cipla", "reference_mrp_inr": 118.0, "pack_size": "5 tablets"},
+        {"brand_name": "Zady 500", "manufacturer": "Mankind", "reference_mrp_inr": 110.0, "pack_size": "5 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Azithromycin Tablets IP 500 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 45.0, "pack_size": "3 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Amoxicillin 500mg", "reason": "Penicillin antibiotic with completely different spectrum and allergy profile."}
+      ]
+    },
+    {
+      "id": "telma_40",
+      "brand_name": "Telma 40",
+      "aliases": ["Telma", "Telma 40mg", "Telmisartan 40"],
+      "ingredients": [
+        {"name": "telmisartan", "strength": "40 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "30 tablets",
+      "units_per_pack": 30,
+      "reference_mrp_inr": 240.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Angiotensin II Receptor Blocker (Antihypertensive)",
+      "category_b_brands": [
+        {"brand_name": "Telmikind 40", "manufacturer": "Mankind", "reference_mrp_inr": 160.0, "pack_size": "30 tablets"},
+        {"brand_name": "Tazloc 40", "manufacturer": "USV", "reference_mrp_inr": 215.0, "pack_size": "30 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Telmisartan Tablets IP 40 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 35.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Amlodipine 5mg", "reason": "Calcium channel blocker with distinct mechanism and side-effect profile (e.g. peripheral edema)."}
+      ]
+    },
+    {
+      "id": "montair_lc",
+      "brand_name": "Montair LC",
+      "aliases": ["Montair-LC", "Montair LC tablet", "Montelukast Levocetirizine"],
+      "ingredients": [
+        {"name": "montelukast", "strength": "10 mg"},
+        {"name": "levocetirizine", "strength": "5 mg"}
+      ],
+      "dosage_form": "tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "10 tablets",
+      "units_per_pack": 10,
+      "reference_mrp_inr": 210.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Antiallergic Combination (Leukotriene receptor antagonist + Antihistamine)",
+      "category_b_brands": [
+        {"brand_name": "Montek LC", "manufacturer": "Sun Pharma", "reference_mrp_inr": 195.0, "pack_size": "10 tablets"},
+        {"brand_name": "Telekast-L", "manufacturer": "Lupin", "reference_mrp_inr": 190.0, "pack_size": "10 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Montelukast 10mg + Levocetirizine 5mg Tablets (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 42.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": []
+    },
+    {
+      "id": "brufen_400",
+      "brand_name": "Brufen 400",
+      "aliases": ["Brufen", "Brufen 400mg", "Ibuprofen 400"],
+      "ingredients": [
+        {"name": "ibuprofen", "strength": "400 mg"}
+      ],
+      "dosage_form": "film-coated tablet",
+      "release_type": "immediate",
+      "standard_pack_size": "15 tablets",
+      "units_per_pack": 15,
+      "reference_mrp_inr": 18.0,
+      "is_rx_required": true,
+      "therapeutic_class": "Non-steroidal Anti-inflammatory Drug (NSAID)",
+      "category_b_brands": [
+        {"brand_name": "Ibugesic 400", "manufacturer": "Cipla", "reference_mrp_inr": 16.5, "pack_size": "15 tablets"}
+      ],
+      "category_c_generics": [
+        {"generic_name": "Ibuprofen Tablets IP 400 mg (Jan Aushadhi)", "manufacturer": "Jan Aushadhi", "reference_mrp_inr": 7.0, "pack_size": "10 tablets"}
+      ],
+      "category_d_non_interchangeable": [
+        {"drug_name": "Paracetamol 650mg", "reason": "Paracetamol lacks peripheral anti-inflammatory action and has liver toxicity limits rather than NSAID gastrointestinal/renal risks."}
+      ]
+    }
+  ]
+}

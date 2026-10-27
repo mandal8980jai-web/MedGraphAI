@@ -1,0 +1,93 @@
+# ==============================================================================
+# MediGraph AI - Root .gitignore
+# Prevents secrets, virtual environments, build artifacts, databases, and
+# user-uploaded prescriptions from being committed to version control.
+# ==============================================================================
+
+# Environment files and secrets
+.env
+.env.*
+*.env
+*.env.*
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+!.env.example
+!.env.sample
+!.env.template
+!backend/.env.example
+!frontend/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / frontend build output
+node_modules/
+dist/
+build/
+coverage/
+.npm/
+.vite/
+
+# Local databases and SQLite sidecars
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-shm
+*.sqlite-wal
+backend/*.db
+backend/medigraph.db
+
+# User data, uploaded prescriptions, and generated reports
+# (Directory structure is preserved via committed .gitkeep files)
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+storage/sample_prescriptions/*
+!storage/sample_prescriptions/.gitkeep
+uploads/
+user_uploads/
+prescriptions/
+medical_documents/
+reports/generated/
+data/private/
+private/
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# Secrets, certificates, and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# OS and IDE configuration
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
